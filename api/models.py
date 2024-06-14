@@ -55,6 +55,15 @@ class Breed(models.Model):
 
     )
 
+    class Meta:
+        verbose_name = 'Порода'
+        verbose_name_plural = 'Породы'
+        ordering = ['size']
+        db_table = 'breeds'
+
+    def __str__(self):
+        return self.name_of_breed
+
 
 class Dog(models.Model):
     name = models.CharField(max_length=46, verbose_name='Имя собаки')
@@ -66,3 +75,12 @@ class Dog(models.Model):
     color = models.CharField(max_length=25, verbose_name='Цвет')
     favorite_food = models.CharField(max_length=80, verbose_name='Любимая еда')
     favorite_toy = models.CharField(max_length=52, verbose_name='Любимая игрушка')
+
+    class Meta:
+        verbose_name = 'Собака'
+        verbose_name_plural = 'Собаки'
+        ordering = ['age']
+        db_table = 'dogs'
+
+    def __str__(self):
+        return self.name
